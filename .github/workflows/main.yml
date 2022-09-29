@@ -1,10 +1,7 @@
 name: Qualys IAC Scan 
 on:
-  push:
-    branches:
-      - main
-    paths-ignore:
-      - qualys-iac-demo/.github/**
+  schedule:
+    - cron:  '*/5 * * * *'
 jobs:
     Qualys_iac_scan:
         runs-on: ubuntu-latest
