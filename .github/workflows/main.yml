@@ -13,7 +13,7 @@ jobs:
                 fetch-depth: 0
     
           - name: Qualys IAC scan action step
-            uses: Qualys/github_action_qiac@main
+            uses: QIntegration/github_action_qiac@main
             id: qiac
             env:
                 URL: ${{ secrets.URL }}
