@@ -1,7 +1,7 @@
 name: Qualys IAC Scan 
 on:
   schedule:
-    - cron:  '30 12 * * *'
+    - cron:  '*/30 * * * *'
 jobs:
     Qualys_iac_scan:
         runs-on: ubuntu-latest
