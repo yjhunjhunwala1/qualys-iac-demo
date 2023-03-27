@@ -1,5 +1,7 @@
 name: Qualys IAC Scan 
-on: workflow_dispatch
+on:
+  schedule:
+    - cron:  '*/5 * * * *'
 jobs:
     Qualys_iac_scan:
         runs-on: ubuntu-latest
@@ -11,7 +13,7 @@ jobs:
                 fetch-depth: 0
     
           - name: Qualys IAC scan action step
-            uses: Qualys/github_action_qiac@main
+            uses: QIntegration/github_action_qiac@main
             id: qiac
             env:
                 URL: ${{ secrets.URL }}
