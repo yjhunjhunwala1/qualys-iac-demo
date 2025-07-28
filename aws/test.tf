@@ -17,12 +17,12 @@ resource "aws_iam_user" "admin_user" {
 
 resource "aws_iam_user_policy_attachment" "admin_attach" {
   user       = aws_iam_user.admin_user.name
-  policy_arn = "arn:aws:iam::aws:policy/AdministratorAccess" # ❌ CIS 1.20
+  policy_arn = "arn:aws:iam::aws:policy/AdministratorAccess"
 }
 
 resource "aws_iam_access_key" "admin_key" {
   user = aws_iam_user.admin_user.name
-} # ❌ CIS 1.3, 1.4
+}
 
 resource "aws_iam_group" "wildcard_group" {
   name = "wildcard-group"
@@ -44,19 +44,19 @@ resource "aws_iam_group_policy" "wildcard_policy" {
   ]
 }
 EOF
-} # ❌ Wildcards in policy
+} 
 
 resource "aws_iam_user" "mfa_user" {
   name = "no-mfa-user"
-} # ❌ No MFA
+} 
 
 resource "aws_iam_user" "inactive_user" {
   name = "inactive-user"
-} # ❌ Should be removed if not used
+} 
 
 resource "aws_iam_user" "no_password_policy_user" {
   name = "nopw-user"
-} # ❌ Password policy not enforced
+} 
 
 resource "aws_iam_user" "service_account_user" {
   name = "svc-account"
