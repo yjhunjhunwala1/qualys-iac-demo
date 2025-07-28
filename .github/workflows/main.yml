@@ -24,3 +24,16 @@ jobs:
             if: always() 
             with:
                  sarif_file: response.sarif
+                 
+          - name: Qualys IAC scan action step
+            uses: Qualys/github_action_qiac@main
+            id: qiac
+            env:
+                URL: ${{ secrets.URLCA }}
+                UNAME: ${{ secrets.USERNAMECA }}
+                PASS: ${{ secrets.PASSWORDCA }}
+          - name: Upload SARIF file
+            uses: github/codeql-action/upload-sarif@v3
+            if: always() 
+            with:
+                 sarif_file: response.sarif
