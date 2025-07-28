@@ -26,7 +26,7 @@ jobs:
                  
           - name: Qualys IAC scan action step
             uses: Qualys/github_action_qiac@main
-            id: qiac
+            id: qiac2
             env:
                 URL: ${{ secrets.URLCA }}
                 UNAME: ${{ secrets.USERNAMECA }}
